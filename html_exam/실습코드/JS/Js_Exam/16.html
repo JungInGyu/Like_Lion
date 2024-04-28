@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const array = [1, 2, 3, 4, 5];
+        console.log(array.join()); // 1,2,3,4,5
+        console.log(array.join(' ')); // 1 2 3 4 5
+        console.log(array.join(', ')); // 1, 2, 3, 4, 5
+
+
+        const numbers = [1, 2, 3, 4, 5];
+        let sum = 0;
+        numbers.forEach(n => {
+        sum += n;
+        });
+        console.log(sum);
+
+        sum = array.reduce((acc,curr) => acc+curr, 0);
+        console.log(sum);
+
+        const numbers2 = [1, 2, 3, 4, 5];
+        let sum2 = numbers2.reduce((accumulator, current) => accumulator + current, 0);
+        console.log(sum2);
+
+
+        const numbers3 = [1, 2, 3, 4, 5];
+        let sum3 = numbers3.reduce((accumulator, current) => {
+        console.log({ accumulator, current });
+        return accumulator + current;
+        }, 0);
+        console.log(sum3);
+
+    </script>
+    
+</body>
+</html>

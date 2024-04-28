@@ -1,0 +1,65 @@
+/* @import url(reset.css); */
+
+li{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body{
+    width: 1080px;
+    margin: 0px auto;
+    background-color: white;
+}
+
+div{
+    margin: 0px auto;
+    background-color: #EBEBEB;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+header {
+    height: 90px;
+    width: 1080px;
+    margin-top: 10px;
+}
+
+header ul{
+    float: right;
+    margin-top: 20px;
+}
+
+header ul li {
+    display: inline-block;
+    width: 130px;
+    background-color:rgb(240, 239, 239);
+    text-align: center;
+    color: #252525;
+    padding: 10px;
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+}
+
+section.main{
+    text-align: center;
+    position: relative;
+}
+
+section.main > *{
+    margin-bottom: 20px;
+}
+
+section.main h2{
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+footer ul {
+    text-align: center;
+    color: #7E7E7E;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let oldName = "송아지";
+        let newName = "송수한";
+
+        if(newName){
+            oldName = newName;
+        }
+
+        // if조건문을 아래처럼 사용 할 수 있음.
+        newName && (oldName = newName);
+
+        newName &&= oldName;
+
+        // const person = {age:20};
+        const person = {age:0 , name : "", address:"" };
+        console.log(person);
+        person.age ??= 21;
+        console.log(person);
+
+        person.name ||= "ingyu";
+
+        console.log(person);
+
+        function makeObj(obj){
+            obj.name ??= "guest";
+            obj.age ??= "20";
+            return obj; 
+        }
+
+        console.log(makeObj({}));
+        console.log(makeObj({name:"ingyu"}));
+        console.log(makeObj(person));
+    </script>
+    
+</body>
+</html>

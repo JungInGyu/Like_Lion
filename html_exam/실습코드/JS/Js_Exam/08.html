@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test" class="abc">안녕</div>
+    <input type="text">
+    <script>
+        const obj = {};
+        console.log(typeof obj);
+
+        const dog = {
+            name: "멍멍이",
+            age: 2,
+        }
+
+        const Ingyu = {
+            name : "정인규",
+            avg : 84,
+            max : 79,
+        }
+
+        const daehyun = {
+            name : "노대현",
+            avg : 100,
+            max : 81,
+        }
+        
+        const giwan = {
+            name : "나기완",
+            avg : 100,
+            max : 88,
+        }
+
+        console.log(dog.name);
+        console.log(dog["name"]);
+        console.log(dog.age);
+
+        console.log(Ingyu);
+        console.log(daehyun);
+        console.log(giwan);
+        
+        function print(golf) {
+            const text = `${golf.name}(${golf.max},${golf.avg})`
+            console.log(text);
+        }
+
+        print(Ingyu);
+        print(giwan);
+        print(daehyun);
+
+        //객체 비구조화 할당
+
+
+        function print(golf) {
+            const {name,avg,max} = golf;
+            const text = `${avg}(${max}) 이평균값 밑 최고값 의 주인 이름은 ${name} 입니다.`;
+            console.log(text);
+        }
+
+        const dogs ={
+            name: "멍멍이",
+            age : 2,
+        }
+
+        const {name} = dogs;
+        console.log(name);
+    </script>
+    
+</body>
+</html>
