@@ -1,7 +1,5 @@
 package day09;
 
-import java.awt.*;
-
 public class ShapeDemo {
 
 

@@ -2,6 +2,8 @@ package ChatProject;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ChatClient {
@@ -12,7 +14,7 @@ public class ChatClient {
         Socket socket = null;
         PrintWriter out = null;
         BufferedReader in = null;
-        try{
+        try {
             socket = new Socket(hostName, portNumber);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -39,7 +41,7 @@ public class ChatClient {
                     out.println(userInput); // 클라이언트 종료 명령어를 서버로 전송
                     break;
                 } else if (userInput.equals("/list")) {
-                    // 명령어 목록 요청
+                    // 채팅방 리스트 요청
                     out.println(userInput);
                 } else if (userInput.equals("/create")) {
                     // 채팅방 생성 요청
@@ -47,9 +49,15 @@ public class ChatClient {
                 } else if (userInput.startsWith("/join")) {
                     // 채팅방 입장 요청
                     out.println(userInput);
-                } else if(userInput.equals("/exit")){
+                } else if (userInput.equals("/exit")) {
                     out.println(userInput);
-                }else {
+                } else if(userInput.equals("/users")){
+                    out.println(userInput);
+                } else if(userInput.equals("/roomusers")){
+                    out.println(userInput);
+                } else if(userInput.startsWith("/whisper")){
+                    out.println(userInput);
+                }  else {
                     // 일반 메시지 전송
                     out.println(userInput);
                 }
@@ -75,10 +83,10 @@ public class ChatClient {
     }
 }
 
-class ServerMessageReaders implements Runnable{
+class ServerMessageReader implements Runnable {
     private BufferedReader in;
 
-    public ServerMessageReaders(BufferedReader in) {
+    public ServerMessageReader(BufferedReader in) {
         this.in = in;
     }
 
@@ -86,11 +94,11 @@ class ServerMessageReaders implements Runnable{
     public void run() {
         try {
             String serverLine;
-            while((serverLine = in.readLine())!= null){
-                System.out.println(serverLine);
+            while ((serverLine = in.readLine()) != null) {
+                System.out.println(serverLine); // 서버로부터 받은 메시지를 출력
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Server connection was closed.");
         }
     }
 }
